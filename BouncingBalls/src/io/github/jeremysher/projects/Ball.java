@@ -20,7 +20,6 @@ public class Ball {
 		velocity = DEFAULT_VELOCITY;
 		mass = DEFAULT_MASS;
 		radius = DEFAULT_RADIUS;
-		balls.add(this);
 	}
 	
 	public Ball(Vector d, Vector v) {
@@ -28,7 +27,13 @@ public class Ball {
 		velocity = v;
 		mass = DEFAULT_MASS;
 		radius = DEFAULT_RADIUS;
-		balls.add(this);
+	}
+	
+	public Ball(Vector d, double r) {
+		displacement = d;
+		velocity = DEFAULT_VELOCITY;
+		mass = DEFAULT_DENSITY * 4.0 / 3.0 * Math.PI * Math.pow(r, 3);
+		radius = r;
 	}
 	
 	public Ball(Vector d, Vector v, double r) {
@@ -36,7 +41,6 @@ public class Ball {
 		velocity = v;
 		radius = r;
 		mass = DEFAULT_DENSITY * 4.0 / 3.0 * Math.PI * Math.pow(r, 3);
-		balls.add(this);
 	}
 	
 	public Ball(Vector d, Vector v, double r, double m) {
@@ -44,7 +48,16 @@ public class Ball {
 		velocity = v;
 		radius = r;
 		mass = m;
-		balls.add(this);
+	}
+	
+	public static void addBall(Ball ball) {
+		balls.add(ball);
+	}
+	
+	public static void addBall(ArrayList<Ball> ballList) {
+		for (Ball ball : ballList) {
+			balls.add(ball);
+		}
 	}
 	
 	public void move(double dt) {
