@@ -45,6 +45,11 @@ public class Main {
 			
 			
 			ArrayList<Ball> toAdd = new ArrayList<Ball>();
+
+			@Override
+			public void init() {
+				
+			}
 		
 			@Override
 			public void run() {
